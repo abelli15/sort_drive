@@ -73,6 +73,12 @@ Ejemplo:
 python3 drive_sorter.py /ruta/a/carpeta1 /ruta/a/carpeta2
 ```
 
+Tomar todas las subcarpetas de una raiz y copiar (sin modificar el origen):
+
+```bash
+python3 drive_sorter.py --source-root "/ruta/a/original_files" --dest "/ruta/a/new_files" --copy
+```
+
 Para previsualizar sin mover archivos:
 
 ```bash
@@ -94,9 +100,17 @@ python3 drive_sorter.py --config /ruta/a/sort_drive.conf /ruta/a/carpeta1
 ### Parametros
 
 - `source_folders`: una o mas carpetas origen.
+- `--source-root`: carpeta raiz de la que se toman subcarpetas.
 - `--dest`: carpeta destino (ruta absoluta o relativa al directorio actual).
+- `--copy`: copia archivos en lugar de moverlos.
 - `--dry-run`: muestra las acciones sin mover archivos.
 - `--config`: ruta del archivo de configuracion.
+
+Valores por defecto en `sort_drive.conf`:
+
+- `DRIVE_SORTER_DEST`
+- `DRIVE_SORTER_SOURCE_ROOT`
+- `DRIVE_SORTER_COPY`
 
 ## pre_pull_from_drive.sh
 
