@@ -15,6 +15,7 @@ LOCAL_FOLDER="${LOCAL_FOLDER:-$HOME/DriveTrabajo}"
 EXCLUDES_FILE="${EXCLUDES_FILE:-}"
 TRANSFERS="${TRANSFERS:-4}"
 CHECKERS="${CHECKERS:-8}"
+DRIVE_PULL_PATTERN="${DRIVE_PULL_PATTERN:-}"
 
 # --- Variables internas ---
 STATE_DIR="$HOME/.local/state/drive_sync"
@@ -75,6 +76,10 @@ RCLONE_OPTS=(
 
 if [[ -n "$EXCLUDES_FILE" && -f "$EXCLUDES_FILE" ]]; then
   RCLONE_OPTS+=("--exclude-from" "$EXCLUDES_FILE")
+fi
+
+if [[ -n "$DRIVE_PULL_PATTERN" ]]; then
+  RCLONE_OPTS+=("--include" "/${DRIVE_PULL_PATTERN}/**")
 fi
 
 if $DRY_RUN; then

@@ -116,6 +116,14 @@ Usar un archivo de configuracion alternativo:
 CONFIG_FILE=/ruta/a/sort_drive.conf ./pre_pull_from_drive.sh
 ```
 
+Filtrar solo carpetas que coincidan con un patron (ejemplo):
+
+```bash
+# En sort_drive.conf:
+# DRIVE_PULL_PATTERN=2025*_vs*
+./pre_pull_from_drive.sh --dry-run --yes
+```
+
 ### Configuracion
 
 Variables editables en `sort_drive.conf` (o con `CONFIG_FILE`):
@@ -125,6 +133,7 @@ Variables editables en `sort_drive.conf` (o con `CONFIG_FILE`):
 - `LOCAL_FOLDER`: carpeta local destino.
 - `EXCLUDES_FILE`: archivo de exclusiones de `rclone` (opcional).
 - `TRANSFERS`, `CHECKERS`: parametros de rendimiento.
+- `DRIVE_PULL_PATTERN`: patron de carpeta dentro de `REMOTE_FOLDER` (opcional).
 
 ## post_push_to_drive.sh
 
